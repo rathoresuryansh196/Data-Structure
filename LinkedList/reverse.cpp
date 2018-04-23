@@ -8,24 +8,17 @@
      struct Node *next;
   }
 */
-void ReversePrint(Node *head)
+Node* Reverse(Node *head)
 {
-    struct Node* curr , *next , *prev;
-    prev = NULL;
-    curr = head;
-    while(curr!=NULL)
-    {
-        next = curr->next;
-        curr->next = prev;
-        prev = curr;
-        curr = next;
+    Node *prev   = NULL;
+    Node *current = head;
+    Node *next;
+    while (current != NULL) {
+        next = current -> next;  
+        current -> next = prev;   
+        prev = current;
+        current = next;
     }
-    head = curr;
-    while(head!=NULL)
-    {
-        cout << head->data <<endl;
-        head = head->next;
-    }
-  // This is a "method-only" submission. 
-  // You only need to complete this method. 
+    head = prev;
+    return head;
 }
